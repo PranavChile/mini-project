@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerability Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="tool-page">
+    <div class="container">
+        <h2>Website Vulnerability Scanner</h2>
+        <input type="text" id="searchBar" placeholder="Enter website URL...">
+        <button id="scanBtn">Scan</button>
+        <div id="results"></div>
+        <button onclick="goBack()">Back to Dashboard</button>
+    </div>
+
+    <script>
+        document.getElementById("scanBtn").addEventListener("click", scanWebsite);
+
+        function scanWebsite() {
+            const url = document.getElementById("searchBar").value;
+
+            if (!url) {
+                alert("Please enter a URL.");
+                return;
+            }
+
+            fetch("http://127.0.0.1:5001/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ url: url })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                const resultsDiv = document.getElementById("results");
+                resultsDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Something went wrong while scanning.");
+            });
+        }
+
+        function goBack() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
+</body>
+</html>

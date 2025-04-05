@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page">
+   <!-- Tool Button-->
+   <div class="tool-button">
+    <a href="tool.html">🛠 Tool</a>
+   </div>
+
+    <!-- Tables Section -->
+    <div class="table-container">
+        <table class="table-box">
+            <tr>
+                <th>Name</th>
+                <th>Skills</th>
+                <th>Qualification</th>
+            </tr>
+            <tr>
+                <td>Prathmesh Manohar Singhan</td>
+                <td>Ethical Hacking, Web Security</td>
+                <td>BE CSE(AI & ML)</td>
+            </tr>
+        </table>
+
+        <table class="table-box">
+            <tr>
+                <th>Name</th>
+                <th>Skills</th>
+                <th>Qualification</th>
+            </tr>
+            <tr>
+                <td>Lajim Ismail Mulla</td>
+                <td>Cybersecurity, Ethical Hacking</td>
+                <td>BE CSE(AI & ML)</td>
+            </tr>
+        </table>
+
+        <table class="table-box">
+            <tr>
+                <th>Name</th>
+                <th>Skills</th>
+                <th>Qualification</th>
+            </tr>
+            <tr>
+                <td>Pranav Babali Chile</td>
+                <td>Full Stack Development</td>
+                <td>BE CSE(AI & ML)</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Logout Button (Centered Below Middle Table) -->
+    <div class="logout-container">
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function logout() {
+            alert("Logging out...");
+            window.location.href = "signup.html"; // Redirect to Sign-up page
+        }
+    </script>
+</body>
+</html>
